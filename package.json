@@ -3,8 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-proposal-decorators": "^7.4.4",
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
+    "mobx": "^5.9.4",
+    "mobx-react": "^5.4.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0"
   },
   "scripts": {
@@ -26,6 +32,25 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "babel": {
+    "plugins":[
+      [
+        "@babel/plugin-proposal-decorators",
+        {
+          "legacy":true
+        }
+      ],
+      [
+        "@babel/plugin-proposal-class-properties",
+        {
+          "loose":true
+        }
+      ]
+    ],
+    "presets":[
+      "react-app"
     ]
   }
 }

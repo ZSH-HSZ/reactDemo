@@ -1,23 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-
+import Info from './pages/info/index'
+import Login from './pages/login/index'
+import Index from './pages/index/index'
+import {
+  HashRouter,
+  Route,
+  Switch
+} from 'react-router-dom'
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <HashRouter>
+          <Switch>
+            <Route exact path="/" component={Index}/>
+            <Route path="/info" component={Info}/>
+            <Route path="/login" component={Login}/>
+          </Switch>
+        </HashRouter>
       </header>
     </div>
   );
