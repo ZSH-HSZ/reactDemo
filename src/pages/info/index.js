@@ -2,18 +2,22 @@
 import React, { Component } from 'react'
 import AppState from '../../mobx'
 import {info} from './data'
-import { observable, computed}  from 'mobx-react'
+import { observable, computed}  from 'mobx'
+import {observer} from "mobx-react";
+@observer
 export default class UserInfo extends React.Component {
-  @computed name() {
-    // 正确的; 计算属性会追踪 `user.name` 属性
-    return this.props.AppState.userName
+  @computed get total() {
+    return AppState.userNameText
   }
   constructor(props) {
     super(props);
     this.state = info
   }
   componentDidMount() {
-    AppState.writeUser('do not know')
+    setTimeout(()=>{
+      AppState.writeUser('do not know')
+      console.log(AppState.userName)
+    }, 3000)
   }
   render() {
     return (
@@ -22,9 +26,10 @@ export default class UserInfo extends React.Component {
         <div>11</div>
         <div>{this.state.name}</div>
         <div>22</div>
-        <div>{this.name}</div>
+        <div>{AppState.userName}</div>
         <div>33</div>
         <div>{AppState.userNameText}</div>
+        <div>{this.total}</div>
       </div>
     )
   }

@@ -4,6 +4,7 @@ import Info from './pages/info/index'
 import Login from './pages/login/index'
 import Index from './pages/index/index'
 import {
+  // BrowserRouter,
   HashRouter,
   Route,
   Switch

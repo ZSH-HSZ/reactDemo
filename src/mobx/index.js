@@ -1,20 +1,14 @@
 import {action, observable, decorate, computed} from "mobx";
 
 class AppState {
-  userName = ''
+  @observable userName = 'zhao'
 
-  get userNameText() {
+  @computed get userNameText() {
     return this.userName ? this.userName : 'admin';
   }
   
-  writeUser(val) {
+  @action writeUser(val) {
     this.userName = val;
   }
 }
-
-decorate(AppState, {
-  userName: observable,
-  userNameText: computed,
-  writeUser: action,
-})
 export default new AppState()
